@@ -3,6 +3,7 @@ import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
 
 import { holdings as localHoldings } from "../data/data";
+import { apiUrl } from "../api";
 
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
@@ -13,7 +14,7 @@ const Holdings = () => {
 
     const loadHoldings = async () => {
       try {
-        const res = await axios.get("http://localhost:3002/allHoldings");
+        const res = await axios.get(apiUrl("/allHoldings"));
         if (isMounted) {
           setAllHoldings(res.data);
           setDataSource("server");

@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "frontend/build",
+  "rewrites": [
+    {
+      "source": "/kite",
+      "destination": "/kite/index.html"
+    },
+    {
+      "source": "/kite/:path*",
+      "destination": "/kite/index.html"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}

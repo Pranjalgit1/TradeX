@@ -1,0 +1,11 @@
+{
+  "name": "tradex",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "vercel-build": "node scripts/vercel-build.js",
+    "start:backend": "npm --prefix BackEnd start",
+    "start:frontend": "npm --prefix frontend start",
+    "start:kite": "npm --prefix kite start"
+  }
+}

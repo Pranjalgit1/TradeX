@@ -5,6 +5,7 @@ import axios from "axios";
 import GeneralContext from "./GeneralContext";
 
 import "./BuyActionWindow.css";
+import { apiUrl } from "../api";
 
 const BuyActionWindow = ({ uid }) => {
   const { closeBuyWindow } = useContext(GeneralContext);
@@ -14,7 +15,7 @@ const BuyActionWindow = ({ uid }) => {
 
   const handleBuyClick = async () => {
     try {
-      await axios.post("http://localhost:3002/newOrder", {
+      await axios.post(apiUrl("/newOrder"), {
         name: uid,
         qty: stockQuantity,
         price: stockPrice,
@@ -23,7 +24,7 @@ const BuyActionWindow = ({ uid }) => {
 
       closeBuyWindow();
     } catch (error) {
-      setSubmitError("Order service is offline. Start backend on port 3002.");
+      setSubmitError("Order service is offline. Please try again later.");
     }
   };
 
