@@ -31,7 +31,9 @@ function installAndBuild(app, env = {}) {
     run("npm", ["--prefix", app, installCommand]);
   }
 
-  run("npm", ["--prefix", app, "run", "build"], { env });
+  run("npm", ["--prefix", app, "run", "build"], {
+    env: { CI: "false", ...env },
+  });
 }
 
 installAndBuild("frontend");
